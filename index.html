@@ -8,37 +8,55 @@
     <div id="root"></div>
     <script type="text/babel">
 
-      const Greetings = function () {
+      const data = [
 
-        return [
+        {
 
+          greeting: "Hello!",
 
-          <li key="1">
+          id: 1
 
-            Hello!
+        },
 
-          </li>,
+        {
 
-          <li key="2">
+          greeting: "Hey!",
 
-            Hey!
+          id: 2
 
-          </li>,
+        },
 
-          <li key="3">
+        {
 
-            Yo!
+          greeting: "Yo!",
 
-          </li>
+          id: 3
 
+        }
 
-        ]
+      ]
+
+      const Greetings = function ( {data} = {} ) {
+
+        return data.map( function (item) {
+
+          return (
+
+            <li key={item.id}>
+
+              {item.greeting}
+
+            </li>
+
+          )
+
+        });
 
       }
 
       ReactDOM.render(
 
-        <Greetings />,
+        <Greetings data={data}/>,
 
         document.getElementById("root")
 
